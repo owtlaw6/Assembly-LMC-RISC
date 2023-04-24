@@ -1,0 +1,38 @@
+L       LDA C
+        BRZ C
+        SUB ONE
+        STA C
+        LDA T
+        ADD ONE
+        STA T
+        ADD STAOP
+        STA STAI
+        INP
+        BRZ gata
+        STA numar
+        STA num2
+        LDA zero
+        STA total
+loop    LDA total
+        ADD numar
+        STA total
+        LDA num2
+        SUB one
+        STA num2
+        BRP loop
+        LDA total
+        SUB numar
+        STA total
+        OUT
+STAI  DAT
+        BRA L
+gata    HLT
+numar   DAT
+num2    DAT
+C       DAT 10
+ONE     DAT 1
+STAOP   DAT 300
+T       DAT 41
+total   DAT 0
+zero    DAT 0
+one     DAT 1

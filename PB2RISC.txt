@@ -1,0 +1,19 @@
+        ADD R1, #200
+        MOV R4, #2
+BEGIN   INP R2, 2
+        CMP R2, R0
+        BEQ END
+        CMP R2, #2
+        BEQ SKIP
+        MOV R4, #2
+LOOP    MOV R5, R2
+        MOD R5, R4
+        BEQ BEGIN
+        ADD R4, #1
+        CMP R4, R2
+        BEQ SKIP
+        BRA LOOP
+SKIP    STR R2,[R1]
+        ADD R1, #1
+        BRA BEGIN
+END     HLT

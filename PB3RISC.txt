@@ -1,0 +1,48 @@
+        ADD R1, #200 //ADR
+CITIRE  INP R2, 2
+        CMP R2, #0
+        BLT ENDREAD
+        ADD R0, #1 //i
+        STR R2, [R1]
+        ADD R1, #1
+        BRA CITIRE
+ENDREAD BRA PERM1
+// tentativa de a face permutarea, am mutat ultimul element pe prima pozitie, stiu ce nu e bine la restul codului, dar din motive de timp nu mai am timp sa il repar, am facut prost partea de shift-are, trebuia sa mut din 2 in 2, doar ultimul element trebuie mutat cu o pozitie, dar macar am citirea buna 
+PERM1   SUB R1, #1
+        LDR R3, [R1] //LST
+        MOV R7, #200
+        LDR R4, [R7] //FRS
+        STR R3, [R7] //frst
+        MOV R7, #0
+        MOV R3, R1
+LOOP    MOV R5, R3 //CRT
+        SUB R5, #1 //BEFORE
+        LDR R6, [R5] 
+        STR R5, [R6]
+        SUB R3, #1
+        CMP R3, #201
+        BEQ DONELOOP
+        BRA LOOP
+DONELOOP MOV R7, #201 
+        STR R4, [R7]
+
+//aici e algoritmul de prim pe care nu l-am mai integrat in cod, l-am facut separat cu intentia de a face pe rand bucatile sa mearga
+        ADD R1, #200
+        MOV R4, #2
+BEGIN   INP R2, 2
+        CMP R2, R0
+        BEQ END
+        CMP R2, #2
+        BEQ SKIP
+        MOV R4, #2
+LOOP    MOV R5, R2
+        MOD R5, R4
+        BEQ BEGIN
+        ADD R4, #1
+        CMP R4, R2
+        BEQ SKIP
+        BRA LOOP
+SKIP    STR R2,[R1]
+        ADD R1, #1
+        BRA BEGIN
+END     HLT

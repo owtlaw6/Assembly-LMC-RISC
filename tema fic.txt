@@ -1,0 +1,20 @@
+Se citeste o valoare N>0, N<15 ce va reprezenta numarul de elemente ale unui array.
+Sa se implementeze urmatoarele functii:
+1.functie ce va citi N valori de la INPUT. Valorile impare vor fi salvate intr-un array incepand cu adresa 150.
+2.functie ce va afisa valorile din array la OUTPUT.
+3.functie ce va calcula valoarea maxima din array.
+4.functie ce va construi un nou array incepand cu la adresa 170, din valorile pare ale primului array
+5.sortarea celui de-al doilea array folosind metoda insertion sort
+void insertionSort(int array[], int n) 
+{ 
+int i, element, j; 
+for (i = 1; i < n; i++) 
+{ element = array[i]; j = i - 1; 
+while (j >= 0 && array[j] > element) 
+{ 
+array[j + 1] = array[j]; 
+j = j - 1; 
+} 
+array[j + 1] = element; 
+} 
+}

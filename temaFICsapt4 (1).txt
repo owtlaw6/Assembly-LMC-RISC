@@ -1,0 +1,19 @@
+        ADD R0, #10
+        INP R1, 2
+        MUL R1, R1
+        CMP R1, #0
+        BEQ END
+        ADD R2, #100
+        STR R1, [R2]
+        ADD R2, #1
+LOOP  SUB R0, #1
+        CMP R0, #0
+        BEQ END
+        INP R1, 2
+        MUL R1, R1
+        CMP R1, #0
+        BEQ END
+        STR R1, [R2]
+        ADD R2, #1
+        BRA LOOP
+END   HLT

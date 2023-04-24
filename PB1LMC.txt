@@ -1,0 +1,14 @@
+        INP
+        STA 98
+        STA 99
+loop    INP
+        STA 97
+        ADD 99
+        OUT
+        LDA 98
+        SUB ONE
+        STA 98
+        BRZ DONE
+        BRA loop
+DONE    HLT
+ONE     DAT 1
